@@ -9,7 +9,6 @@ public class Initiator {
 
 	private static final Logger logger = LogManager.getLogger(Initiator.class);
 
-	
 	public static void main(String[] args)
 	{
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationConfig.class);
