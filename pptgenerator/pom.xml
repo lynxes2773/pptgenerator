@@ -1,0 +1,204 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>rohit.demo</groupId>
+  <artifactId>powerpoint-creator</artifactId>
+  <version>1.0</version>
+  <name>Powerpoint Creation Demo</name>
+  <description>Generate Powerpoint presentations in Java using Excel as a source				</description>
+  <properties>
+		<java.version>11</java.version>
+		<resource.directory>src/main/resources</resource.directory>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring.version>4.3.4.RELEASE</spring.version>
+	    <velocity-version>1.7</velocity-version>
+		<slf4j.version>1.6.1</slf4j.version>
+  </properties>
+  <repositories>
+    <repository>
+        <id>AsposeJavaAPI</id>
+        <name>Aspose Java API</name>
+        <url>https://releases.aspose.com/java/repo/</url>
+    </repository>
+  </repositories>
+  <dependencies>
+		<dependency>
+			<groupId>com.aspose</groupId>
+			<artifactId>aspose-slides</artifactId>
+			<version>24.9</version>
+			<classifier>jdk16</classifier>
+		</dependency>
+		<dependency>
+		    <groupId>com.aspose</groupId>
+		    <artifactId>aspose-slides</artifactId>
+		    <version>24.9</version>
+		    <classifier>javadoc</classifier>
+		</dependency>
+      <!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+		<dependency>
+		    <groupId>commons-logging</groupId>
+		    <artifactId>commons-logging</artifactId>
+		    <version>1.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi</artifactId>
+		    <version>5.3.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-ooxml</artifactId>
+		    <version>5.3.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-aop</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-aspects -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-aspects</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-beans</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-core</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-expression -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-expression</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+		<dependency>
+		    <groupId>javax.xml.bind</groupId>
+		    <artifactId>jaxb-api</artifactId>
+		    <version>2.3.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.activation/activation -->
+		<dependency>
+		    <groupId>javax.activation</groupId>
+		    <artifactId>activation</artifactId>
+		    <version>1.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-api</artifactId>
+		    <version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-simple</artifactId>
+		    <version>${slf4j.version}</version>
+		</dependency>		
+<!-- Thanks for using https://jar-download.com -->
+		
+  </dependencies>
+  <build>
+	 <resources>
+		<resource>
+			<directory>${resource.directory}</directory>
+			<filtering>true</filtering>
+		</resource>
+	 </resources>
+     <plugins>
+  		<!-- Enabling and configuring regular resources filtering.
+           See also section "resources" below -->
+  		<plugin>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-resources-plugin</artifactId>
+            <version>2.6</version>
+            <configuration>
+                <!-- specify UTF-8, ISO-8859-1 or any other file encoding -->
+                <encoding>${project.build.sourceEncoding}</encoding>
+            </configuration>
+  		</plugin>     
+         <plugin>
+             <groupId>org.apache.maven.plugins</groupId>
+             <artifactId>maven-jar-plugin</artifactId>
+             <version>2.4</version>
+             <configuration>
+                 <archive>
+                     <manifest>
+                         <mainClass>tbd</mainClass>
+                     </manifest>
+                 </archive>
+			     <cleanupDaemonThreads>false</cleanupDaemonThreads>                 
+             </configuration>
+         </plugin>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-compiler-plugin</artifactId>
+		    <version>3.8.0</version>
+		    <configuration>
+		        <source>${java.version}</source>
+		        <target>${java.version}</target>
+		    </configuration>
+		</plugin>
+		<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>2.4</version>
+            <configuration>
+                <archive>
+                    <manifest>
+                        <mainClass>tbd</mainClass>
+                    </manifest>
+                </archive>
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>make-jar-with-dependencies</id>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>single</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>		         
+     </plugins>
+  </build>
+  <profiles>
+ 	<!-- Development environment @ my laptop -->
+     <profile>
+         <id>dev</id>
+         <!-- Dev Env. Properties -->
+         <properties>
+             <profile.name>dev</profile.name>
+			 <output-directory>C:\DemoApp\bin</output-directory>
+			 <source.location>C:\DemoApp\conf</source.location>
+			 <source.file.name>configurations.xlsx</source.file.name>
+			 <output.file.name>DemoOutput.pptx</output.file.name>       
+			 <report.save.location>tbd\output\</report.save.location>
+			 <log.file.path>C:\DemoApp\logs.txt</log.file.path>
+			 <images.location>C:\DemoApp\images\</images.location>
+         </properties>
+    </profile>
+  </profiles>  
+</project>
