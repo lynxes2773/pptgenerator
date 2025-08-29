@@ -143,7 +143,7 @@
              <configuration>
                  <archive>
                      <manifest>
-                         <mainClass>tbd</mainClass>
+                         <mainClass>com.rl.pptgenerator.Initiator</mainClass>
                      </manifest>
                  </archive>
 			     <cleanupDaemonThreads>false</cleanupDaemonThreads>                 
@@ -165,7 +165,7 @@
             <configuration>
                 <archive>
                     <manifest>
-                        <mainClass>tbd</mainClass>
+                        <mainClass>com.rl.pptgenerator.Initiator</mainClass>
                     </manifest>
                 </archive>
                 <descriptorRefs>
@@ -192,7 +192,7 @@
          <properties>
              <profile.name>dev</profile.name>
 			 <output-directory>C:\DemoApp\bin</output-directory>
-			 <source.location>C:\DemoApp\conf</source.location>
+			 <source.location>C:\DemoApp\conf\</source.location>
 			 <source.file.name>configurations.xlsx</source.file.name>
 			 <output.file.name>DemoOutput.pptx</output.file.name>       
 			 <report.save.location>tbd\output\</report.save.location>

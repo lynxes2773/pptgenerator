@@ -12,5 +12,7 @@ public class Initiator {
 	public static void main(String[] args)
 	{
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+		ExecutionTrigger trigger = ctx.getBean(ExecutionTrigger.class);
+		trigger.startExecution();
 	}
 }
