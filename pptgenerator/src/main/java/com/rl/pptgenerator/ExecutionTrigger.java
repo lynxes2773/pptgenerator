@@ -11,6 +11,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.stereotype.Component;
 
 import com.rl.pptgenerator.util.ExcelDataReader;
+import com.rl.pptgenerator.util.PowerpointFunctions;
 
 @Component
 public class ExecutionTrigger {
@@ -22,6 +23,9 @@ public class ExecutionTrigger {
 	
 	@Autowired
 	private ExcelDataReader excelReader;	
+	
+	@Autowired
+	private PowerpointFunctions pptFunctions;
 	
 	@Value("${source.location}")
 	private String sourceLocation;	
@@ -36,6 +40,7 @@ public class ExecutionTrigger {
 	
 	public void startExecution()
 	{
-		List<HashMap> results = excelReader.readExcelData(sourceLocation, sourceFileName);		
+		List<HashMap> results = excelReader.readExcelData(sourceLocation, sourceFileName);	
+		boolean errorEncountered = pptFunctions.createPowerpoint(results);
 	}
 }
